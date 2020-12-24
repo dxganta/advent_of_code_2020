@@ -33,13 +33,10 @@ def recur_sol(bag_color):
     else:
         total_bags = 0
         for k in main_map[bag_color].keys():
-            r = recur_sol(k)
             temp_bags = main_map[bag_color][k]
-            total_bags += temp_bags + (temp_bags * r)
+            total_bags += temp_bags + (temp_bags * recur_sol(k))
 
     return total_bags
 
 
 print("Final Answer Level 2 : ", recur_sol("shiny gold"))
-
-# build my own test cases & and test the code. no other way
